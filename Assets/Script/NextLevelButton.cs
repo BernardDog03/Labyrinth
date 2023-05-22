@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class NextLevelButton : MonoBehaviour
 {
-    private void onEnable()
+    private void OnEnable()
     {
         var currentScene = SceneManager.GetActiveScene();
         int currentLevel = int.Parse(currentScene.name.Split("Level  ")[1]);
         int nextLevel = currentLevel + 1;
 
-        var nextScene = SceneUtility.GetBuildIndexByScenePath("Level " + nextLevel);
-        if(nextScene == -1)
+        var nextSceneBuildIndex = SceneUtility.GetBuildIndexByScenePath("Level " + nextLevel);
+        if(nextSceneBuildIndex == -1)
         {
             this.gameObject.SetActive(false);
         }
@@ -21,7 +21,7 @@ public class NextLevelButton : MonoBehaviour
     public void NextLevel()
     {
         var currentScene = SceneManager.GetActiveScene();
-        int currentLevel = int.Parse(currentScene.name.Split("Level  ")[1]);
+        int currentLevel = int.Parse(currentScene.name.Split("Level  ")[2]);
         int nextLevel = currentLevel + 1;
         SceneManager.LoadScene("Level " + nextLevel);
     }
