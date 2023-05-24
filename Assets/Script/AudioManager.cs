@@ -62,6 +62,8 @@ public class AudioManager : MonoBehaviour
     {
         bgm.mute = value;
         sfx.mute = value;
+        Debug.Log(bgm.mute);
+        Debug.Log(sfx.mute);
     }
 
     public void setVolumeBGM(float value)
